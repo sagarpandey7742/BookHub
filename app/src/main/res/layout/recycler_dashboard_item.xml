@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<androidx.cardview.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_margin="6dp"
+    android:orientation="horizontal"
+    app:cardCornerRadius="4dp">
+
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingTop="5dp"
+    android:paddingBottom="5dp"
+    android:orientation="horizontal"
+    android:id="@+id/llContent"
+    android:weightSum="6">
+
+    <ImageView
+        android:layout_width="0dp"
+        android:layout_height="110dp"
+        android:layout_weight="1.5"
+        android:src="@mipmap/ic_launcher_round"
+        android:id="@+id/imgBook"
+        android:padding="2dp"
+        android:scaleType="centerCrop">
+    </ImageView>
+
+
+    <RelativeLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:id="@+id/lytRecycler"
+        android:layout_weight="3.3">
+
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:textSize="18sp"
+            android:text="@string/text_item"
+            android:id="@+id/txtRecyclerItem"
+            android:textStyle="bold"
+            android:textColor="#000000">
+        </TextView>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/txtAuthorDescription"
+            android:text="Author Name"
+            android:textSize="12sp"
+            android:layout_below="@id/txtRecyclerItem"
+            android:paddingTop="10dp"
+            android:paddingLeft="10dp">
+        </TextView>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/txtBookPrice"
+            android:text="Rs 299"
+            android:textSize="15sp"
+            android:layout_below="@id/txtAuthorDescription"
+            android:paddingTop="10dp"
+            android:paddingLeft="10dp"
+            android:textStyle="bold">
+        </TextView>
+    </RelativeLayout>
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1.2"
+            android:id="@+id/txtStartRating"
+            android:layout_alignParentRight="true"
+            android:text="4.5"
+            android:textColor="#FFD700"
+            android:textSize="18sp"
+            android:paddingTop="15dp"
+            android:paddingRight="10dp"
+            android:drawableLeft="@drawable/ic_favourite_star">
+        </TextView>
+</LinearLayout>
+</androidx.cardview.widget.CardView>
