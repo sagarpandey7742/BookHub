@@ -5,17 +5,15 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
-import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.bookhub.R
 import com.example.bookhub.database.BookEntity
-import com.example.bookhub.model.book
 
 import com.squareup.picasso.Picasso
 
 
-class FavouriteRecyclerAdapter(val context: Context, val bookList: List<BookEntity>): RecyclerView.Adapter<FavouriteRecyclerAdapter.FavouriteViewHolder>() {
+class FavouriteRecyclerAdapter(val context: Context, val bookList: List<BookEntity>): RecyclerView.Adapter<FavouriteRecyclerAdapter.FavouriteViewHolder>(){
 
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): FavouriteViewHolder {
@@ -39,16 +37,15 @@ class FavouriteRecyclerAdapter(val context: Context, val bookList: List<BookEnti
         holder.txtBookName.text = book.bookName
         holder.txtAuthorDescription.text = book.bookAuthor
         holder.txtBookPrice.text = book.bookPrice
-        holder.txtBookRating.text = book.bookRating
-        Picasso.get().load(book.bookImg).error(R.drawable.default_book_cover).into(holder.imgBookImage)
+        holder.txtStartRating.text = book.bookRating
+        Picasso.get().load(book.bookImg).error(R.drawable.default_book_cover).into(holder.imgBook)
     }
 
     class FavouriteViewHolder(view: View):RecyclerView.ViewHolder(view){
         val txtBookName: TextView = view.findViewById(R.id.txtBookName)
         val txtAuthorDescription:TextView = view.findViewById(R.id.txtAuthorDescription)
         val txtBookPrice:TextView = view.findViewById(R.id.txtBookPrice)
-        val imgBookImage:ImageView = view.findViewById(R.id.imgBook)
-        val txtBookRating:TextView = view.findViewById(R.id.txtStartRating)
-        val llcontent:LinearLayout = view.findViewById(R.id.llContent)
+        val imgBook:ImageView = view.findViewById(R.id.imgBook)
+        val txtStartRating:TextView = view.findViewById(R.id.txtStartRating)
     }
 }

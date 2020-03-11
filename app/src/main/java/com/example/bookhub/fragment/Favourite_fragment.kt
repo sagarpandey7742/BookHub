@@ -57,8 +57,9 @@ class Favourite_fragment : Fragment() {
     }
 
     class RetrieveFavourites(val context: Context): AsyncTask<Void, Void, List<BookEntity>>() {
+
         override fun doInBackground(vararg p0: Void?): List<BookEntity> {
-            val db = Room.databaseBuilder(context, BookDatabase::class.java,"book-db").build()
+            val db = Room.databaseBuilder(context, BookDatabase::class.java,"books-db").build()
 
             return db.bookDao().getAllBooks()
         }
