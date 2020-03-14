@@ -36,7 +36,7 @@ class FavouriteRecyclerAdapter(val context: Context, val bookList: List<BookEnti
 
         holder.txtBookName.text = book.bookName
         holder.txtAuthorDescription.text = book.bookAuthor
-        holder.txtBookPrice.text = book.bookPrice
+        holder.txtBookPrice.text = book.bookDescription
         holder.txtStartRating.text = book.bookRating
         Picasso.get().load(book.bookImg).error(R.drawable.default_book_cover).into(holder.imgBook)
     }

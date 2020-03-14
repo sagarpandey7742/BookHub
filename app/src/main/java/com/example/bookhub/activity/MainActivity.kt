@@ -10,8 +10,8 @@ import androidx.core.view.GravityCompat
 import androidx.drawerlayout.widget.DrawerLayout
 import com.example.bookhub.R
 import com.example.bookhub.fragment.About_app_fragment
-import com.example.bookhub.fragment.Dashboard_fragment
-import com.example.bookhub.fragment.Favourite_fragment
+import com.example.bookhub.fragment.DashboardFragment
+import com.example.bookhub.fragment.FavouriteFragment
 import com.example.bookhub.fragment.Profile_fragment
 import com.google.android.material.navigation.NavigationView
 
@@ -81,7 +81,7 @@ class MainActivity : AppCompatActivity() {
 
                 R.id.favourites -> {
                     supportFragmentManager.beginTransaction()
-                        .replace(R.id.frame, Favourite_fragment())
+                        .replace(R.id.frame, FavouriteFragment())
                         .addToBackStack("Favourites")
                         .commit()
                     supportActionBar?.title = "Favourites"
@@ -109,7 +109,7 @@ class MainActivity : AppCompatActivity() {
 
     fun openDashboard(){
         val transaction = supportFragmentManager.beginTransaction()
-            transaction.replace(R.id.frame, Dashboard_fragment())
+            transaction.replace(R.id.frame, DashboardFragment())
             navigationView.setCheckedItem(R.id.dashboard)
             //transaction.addToBackStack("Dashboard")
             transaction.commit()

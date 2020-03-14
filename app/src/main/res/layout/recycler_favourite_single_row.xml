@@ -4,13 +4,13 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_margin="6dp"
+    android:layout_margin="4dp"
     android:orientation="horizontal"
-    app:cardCornerRadius="4dp">
+    app:cardCornerRadius="5dp">
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="250dp"
+        android:layout_height="230dp"
         android:padding="2dp"
         android:orientation="vertical"
         android:weightSum="10">
@@ -18,12 +18,12 @@
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_weight="5"
+            android:layout_weight="4"
             android:background="#E1DEDE">
 
         <ImageView
-            android:layout_width="100dp"
-            android:layout_height="100dp"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
             android:src="@mipmap/ic_launcher_round"
             android:id="@+id/imgBook"
             android:padding="2dp"
@@ -40,45 +40,80 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:paddingTop="10dp"
-                android:textSize="18sp"
+                android:textSize="16sp"
                 android:text="@string/book_name"
                 android:id="@+id/txtBookName"
                 android:textStyle="bold"
+                android:gravity="center"
                 android:textColor="#000000">
             </TextView>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginLeft="4dp"
+                android:layout_marginRight="4dp"
+                android:layout_marginTop="2dp"
+                android:background="#c0c0c0"
+                android:layout_below="@id/txtBookName"/>
+
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:paddingTop="5dp"
-                android:textSize="18sp"
+                android:textSize="16sp"
                 android:text="@string/author_name"
                 android:id="@+id/txtAuthorDescription"
                 android:textColor="#000000"
+                android:gravity="center"
                 android:layout_below="@id/txtBookName">
             </TextView>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginLeft="4dp"
+                android:layout_marginRight="4dp"
+                android:layout_marginTop="2dp"
+                android:background="#c0c0c0"
+                android:layout_below="@id/txtAuthorDescription"/>
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:paddingTop="5dp"
-                android:textSize="18sp"
+                android:textSize="16sp"
                 android:text="@string/price"
                 android:id="@+id/txtBookPrice"
                 android:textStyle="bold"
+                android:gravity="center"
                 android:layout_below="@id/txtAuthorDescription"
                 android:textColor="#136A17">
             </TextView>
 
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginLeft="4dp"
+                android:layout_marginRight="4dp"
+                android:layout_marginTop="2dp"
+                android:background="#c0c0c0"
+                android:layout_below="@id/txtBookPrice"/>
+
             <TextView
+                android:id="@+id/txtStartRating"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/txtStartRating"
+                android:layout_below="@id/txtBookPrice"
+                android:layout_marginTop="3dp"
+                android:drawableStart="@drawable/ic_favourite_star"
+                android:gravity="center"
+                android:layout_centerInParent="true"
+                android:paddingTop="5dp"
                 android:text="@string/_4_5"
                 android:textColor="#FFD700"
-                android:textSize="18sp"
-                android:paddingTop="5dp"
-                android:drawableStart="@drawable/ic_favourite_star"
-                android:layout_below="@id/txtBookPrice">
+                android:textSize="16sp">
+
             </TextView>
 
         </RelativeLayout>

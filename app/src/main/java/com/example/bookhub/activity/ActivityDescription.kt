@@ -16,18 +16,17 @@ import com.android.volley.toolbox.Volley
 import com.example.bookhub.R
 import com.example.bookhub.database.BookDatabase
 import com.example.bookhub.database.BookEntity
-import com.example.bookhub.model.book
 import com.squareup.picasso.Picasso
 import org.json.JSONObject
 
-class activity_description : AppCompatActivity() {
+class ActivityDescription : AppCompatActivity() {
 
     lateinit var txtBookName: TextView
     lateinit var txtBookAuthor: TextView
     lateinit var txtBookPrice: TextView
     lateinit var txtBookRating: TextView
     lateinit var imgBookImage: ImageView
-    lateinit var txtBookDEscription: TextView
+    lateinit var txtBookDescription: TextView
     lateinit var btnAddToFav: Button
     lateinit var progressBar: ProgressBar
     lateinit var progressLayout: RelativeLayout
@@ -44,7 +43,7 @@ class activity_description : AppCompatActivity() {
         btnAddToFav = findViewById(R.id.btnAddToFavourite)
         txtBookAuthor = findViewById(R.id.txtAuthorDescription)
         txtBookPrice = findViewById(R.id.txtBookPrice)
-        txtBookDEscription = findViewById(R.id.txtAboutBook)
+        txtBookDescription = findViewById(R.id.txtAboutBook)
         txtBookRating = findViewById(R.id.txtStartRating)
         progressBar = findViewById(R.id.progressBar)
         progressBar.visibility = View.VISIBLE
@@ -61,15 +60,15 @@ class activity_description : AppCompatActivity() {
         }
         else{
             finish()
-            Toast.makeText(this@activity_description , "Some error occurred", Toast.LENGTH_SHORT).show()
+            Toast.makeText(this@ActivityDescription , "Some error occurred", Toast.LENGTH_SHORT).show()
         }
 
         if(bookid == "100"){
             finish()
-            Toast.makeText(this@activity_description, "Some error occured", Toast.LENGTH_SHORT).show()
+            Toast.makeText(this@ActivityDescription, "Some error occurred", Toast.LENGTH_SHORT).show()
         }
 
-        val queue = Volley.newRequestQueue(this@activity_description as Context)
+        val queue = Volley.newRequestQueue(this@ActivityDescription as Context)
 
         val url = "http://13.235.250.119/v1/book/get_book/"
 
@@ -95,15 +94,15 @@ class activity_description : AppCompatActivity() {
                         txtBookAuthor.text = bookJsonObject.getString("author")
                         txtBookPrice.text = bookJsonObject.getString("price")
                         txtBookRating.text = bookJsonObject.getString("rating")
-                        txtBookDEscription.text = bookJsonObject.getString("description")
+                        txtBookDescription.text = bookJsonObject.getString("description")
 
                         val bookEntity = BookEntity(
                             bookid?.toInt() as Int,
                             txtBookName.text.toString(),
                             txtBookAuthor.text.toString(),
-                            txtBookDEscription.text.toString(),
-                            txtBookRating.text.toString(),
                             txtBookPrice.text.toString(),
+                            txtBookRating.text.toString(),
+                            txtBookDescription.text.toString(),
                             bookImgUrl
                         )
 
@@ -124,18 +123,19 @@ class activity_description : AppCompatActivity() {
 
                         btnAddToFav.setOnClickListener{
                             if(!(DBAsyncTask(applicationContext, bookEntity, 1).execute().get())){
+
                                 val async = DBAsyncTask(applicationContext, bookEntity, 2).execute()
                                 val result = async.get()
 
                                 if(result){
-                                    Toast.makeText(this@activity_description, "Book added to Favourites", Toast.LENGTH_SHORT).show()
+                                    Toast.makeText(this@ActivityDescription, "Book added to Favourites", Toast.LENGTH_SHORT).show()
 
                                     btnAddToFav.text = "Remove from Favourites"
                                     val favColor = ContextCompat.getColor(applicationContext, R.color.colorFav)
                                     btnAddToFav.setBackgroundColor(favColor)
                                 }
                                 else{
-                                    Toast.makeText(this@activity_description, "Some error Occurred", Toast.LENGTH_SHORT).show()
+                                    Toast.makeText(this@ActivityDescription, "Some error Occurred", Toast.LENGTH_SHORT).show()
 
                                 }
 
@@ -146,32 +146,32 @@ class activity_description : AppCompatActivity() {
                                 val result = async.get()
 
                                 if(result){
-                                    Toast.makeText(this@activity_description, "Book removed from Favourites", Toast.LENGTH_SHORT).show()
+                                    Toast.makeText(this@ActivityDescription, "Book removed from Favourites", Toast.LENGTH_SHORT).show()
                                     btnAddToFav.text = "Add to Favourites"
                                     val notFavColor = ContextCompat.getColor(applicationContext, R.color.colorPrimary)
                                     btnAddToFav.setBackgroundColor(notFavColor)
 
                                 }
                                 else{
-                                    Toast.makeText(this@activity_description, "Some error Occurred", Toast.LENGTH_SHORT).show()
+                                    Toast.makeText(this@ActivityDescription, "Some error Occurred", Toast.LENGTH_SHORT).show()
                                 }
                             }
                         }
                     }
 
                     else{
-                        Toast.makeText(this@activity_description, "Some error occurred", Toast.LENGTH_SHORT).show()
+                        Toast.makeText(this@ActivityDescription, "Some error occurred", Toast.LENGTH_SHORT).show()
                     }
                 }
 
                 catch (e: Exception){
-                    Toast.makeText(this@activity_description, "Some error occurred", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(this@ActivityDescription, "Some error occurred", Toast.LENGTH_SHORT).show()
 
                 }
 
             },
             Response.ErrorListener {
-                Toast.makeText(this@activity_description, "Volley error $it", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this@ActivityDescription, "Volley error $it", Toast.LENGTH_SHORT).show()
 
             })
 

@@ -30,7 +30,7 @@ import com.example.bookhub.utils.ConnectionManager
 import kotlinx.android.synthetic.main.recycler_dashboard_item.*
 import org.json.JSONException
 
-class Dashboard_fragment : Fragment() {
+class DashboardFragment : Fragment() {
 
     lateinit var recyclerDashboard : RecyclerView
     lateinit var layoutManager : RecyclerView.LayoutManager
