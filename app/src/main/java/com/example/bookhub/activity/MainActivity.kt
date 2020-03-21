@@ -12,7 +12,7 @@ import com.example.bookhub.R
 import com.example.bookhub.fragment.About_app_fragment
 import com.example.bookhub.fragment.DashboardFragment
 import com.example.bookhub.fragment.FavouriteFragment
-import com.example.bookhub.fragment.Profile_fragment
+import com.example.bookhub.fragment.ProfileFragment
 import com.google.android.material.navigation.NavigationView
 
 class MainActivity : AppCompatActivity() {
@@ -65,7 +65,7 @@ class MainActivity : AppCompatActivity() {
 
                 R.id.profile -> {
                     supportFragmentManager.beginTransaction()
-                        .replace(R.id.frame, Profile_fragment())
+                        .replace(R.id.frame, ProfileFragment())
                         .addToBackStack("Profile")
                         .commit()
                     supportActionBar?.title = "Profile"
@@ -117,10 +117,10 @@ class MainActivity : AppCompatActivity() {
 
     }
 
-//    override fun onBackPressed() {
-//        when(supportFragmentManager.findFragmentById(R.id.frame)){
-//            !is Dashboard_fragment -> openDashboard()
-//            else -> super.onBackPressed()
-//        }
-//    }
+    override fun onBackPressed() {
+        when(supportFragmentManager.findFragmentById(R.id.frame)){
+            !is DashboardFragment -> openDashboard()
+            else -> this@MainActivity?.finish()
+        }
+    }
 }

@@ -8,10 +8,7 @@ import android.view.View
 import android.view.ViewGroup
 import com.example.bookhub.R
 
-/**
- * A simple [Fragment] subclass.
- */
-class Profile_fragment : Fragment() {
+class ProfileFragment : Fragment() {
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
